@@ -177,7 +177,6 @@ interface ERC20Interface {
  *
  * This contract is only required for intermediate, library-like contracts.
  */
-
 abstract contract Context {
     function _msgSender() internal view virtual returns (address payable) {
         return msg.sender;
@@ -274,8 +273,8 @@ contract RIEToken is ERC20Interface, Ownable {
         name = "Ralie Network";
         decimals = 18;
         _totalSupply = 25000000000000000000000000000;
-        _balances[0xa70b419A6028cD48F050d7251cF4Fbbc682CC8AB] = _totalSupply;
-        emit Transfer(address(0), 0xa70b419A6028cD48F050d7251cF4Fbbc682CC8AB, _totalSupply);
+        _balances[0x0D82fB6990d7dC8A22f79623c3A662db099a50be] = _totalSupply;
+        emit Transfer(address(0), 0x0D82fB6990d7dC8A22f79623c3A662db099a50be, _totalSupply);
     }
 
 
