@@ -261,19 +261,19 @@ contract RIEToken is ERC20Interface, Ownable {
     uint8 public decimals;
     
     // Define total token supply
-    uint256 public _totalSupply = 25000000000000000000000000000;
+    uint256 public _totalSupply = 2.5e10 ether;
     
     //Define total ICO Supply
-    uint256 public _ICOSupply = 280000000000000000000000000;
+    uint256 public _ICOSupply = 2.8e8 ether;
     
     //Define total devTeam allocated token funds
-    uint256 public _devTeamSupply = 1000000000000000000000000000;
+    uint256 public _devTeamSupply = 1e9 ether;
     
     //Define total bounty allocated token funds
-    uint256 public _bountySupply = 500000000000000000000000000;
+    uint256 public _bountySupply = 5e8 ether;
     
     //Defube total contract owner supply
-    uint256 public _ownerAddressSupply = _totalSupply.sub(_ICOSupply).sub(_devTeamSupply).sub(_bountySupply);
+    uint256 public _ownerAddressSupply = _totalSupply.sub(_ICOSupply).sub(_devTeamSupply).sub(_bountySupply).sub(2e10 ether);
 
     mapping(address => uint256) _balances;
     mapping (address => mapping (address => uint256)) private _allowances;
@@ -284,7 +284,7 @@ contract RIEToken is ERC20Interface, Ownable {
     // ------------------------------------------------------------------------
     constructor() public {
         symbol = "RIE";
-        name = "Ralie Network";
+        name = "Ralie Token";
         decimals = 18;
         //_totalSupply = 25000000000000000000000000000;
         _balances[0xa70b419A6028cD48F050d7251cF4Fbbc682CC8AB] = _ownerAddressSupply;
@@ -405,6 +405,7 @@ contract RIEToken is ERC20Interface, Ownable {
     }
     
     function mintbyOwner(address account, uint256 amount) public virtual onlyOwner{
+        require(_totalSupply.add(amount) <= _totalSupply, "ERC20: mint request higher than total token suppy");
         _mint(account, amount);
     }
     
