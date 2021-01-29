@@ -1,4 +1,7 @@
 // SPDX-License-Identifier: MIT
+import "./IERC20Permit.sol";
+import "./ECDSA.sol";
+import "./EIP712.sol";
 
 pragma solidity >=0.6.0 <0.8.0;
 
