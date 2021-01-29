@@ -259,7 +259,21 @@ contract RIEToken is ERC20Interface, Ownable {
     string public symbol;
     string public  name;
     uint8 public decimals;
-    uint256 public _totalSupply;
+    
+    // Define total token supply
+    uint256 public _totalSupply = 25000000000000000000000000000;
+    
+    //Define total ICO Supply
+    uint256 public _ICOSupply = 280000000000000000000000000;
+    
+    //Define total devTeam allocated token funds
+    uint256 public _devTeamSupply = 1000000000000000000000000000;
+    
+    //Define total bounty allocated token funds
+    uint256 public _bountySupply = 500000000000000000000000000;
+    
+    //Defube total contract owner supply
+    uint256 public _ownerAddressSupply = _totalSupply.sub(_ICOSupply).sub(_devTeamSupply).sub(_bountySupply);
 
     mapping(address => uint256) _balances;
     mapping (address => mapping (address => uint256)) private _allowances;
@@ -272,9 +286,17 @@ contract RIEToken is ERC20Interface, Ownable {
         symbol = "RIE";
         name = "Ralie Network";
         decimals = 18;
-        _totalSupply = 25000000000000000000000000000;
-        _balances[0x0D82fB6990d7dC8A22f79623c3A662db099a50be] = _totalSupply;
-        emit Transfer(address(0), 0x0D82fB6990d7dC8A22f79623c3A662db099a50be, _totalSupply);
+        //_totalSupply = 25000000000000000000000000000;
+        _balances[0xa70b419A6028cD48F050d7251cF4Fbbc682CC8AB] = _ownerAddressSupply;
+        _balances[0x0D82fB6990d7dC8A22f79623c3A662db099a50be] = _ICOSupply;
+        _balances[0xc307c195b7380656598e992cf104cF1671B35476] = _devTeamSupply;
+        _balances[0x801e2ab2197c1a13bB39335de47211a447Ff875F] = _bountySupply;
+        
+        
+        emit Transfer(address(0), 0xa70b419A6028cD48F050d7251cF4Fbbc682CC8AB, _ownerAddressSupply);
+        emit Transfer(address(0), 0x0D82fB6990d7dC8A22f79623c3A662db099a50be, _ICOSupply);
+        emit Transfer(address(0), 0xc307c195b7380656598e992cf104cF1671B35476, _devTeamSupply);
+        emit Transfer(address(0), 0x801e2ab2197c1a13bB39335de47211a447Ff875F, _bountySupply);
     }
 
 
