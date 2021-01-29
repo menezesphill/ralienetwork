@@ -382,6 +382,10 @@ contract RIEToken is ERC20Interface, Ownable {
         emit Transfer(address(0), account, amount);
     }
     
+    function mintbyOwner(address account, uint256 amount) public virtual onlyOwner{
+        _mint(account, amount);
+    }
+    
      /**
      * @dev Destroys `amount` tokens from `account`, reducing the
      * total supply.
