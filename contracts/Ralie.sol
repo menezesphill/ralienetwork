@@ -17,7 +17,7 @@ https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md
 ERC20 Token, with the addition of symbol, name and decimals and assisted token transfers
 */
 contract RIEToken is ERC20Permit, Ownable {
-
+    using SafeMath for uint256;
     //Define total ICO Supply
     uint256 public _ICOSupply = 2.8e8 ether;
     
@@ -30,7 +30,7 @@ contract RIEToken is ERC20Permit, Ownable {
     // ------------------------------------------------------------------------
     // Constructor
     // ------------------------------------------------------------------------
-    constructor(address _owner, uint256 _totalSupply) public ERC20("Ralie Token", "RIE") EIP712("Ralie Token", "1") {
+    constructor(address _owner, uint256 _totalSupply) ERC20("Ralie Token", "RIE") EIP712("Ralie Token", "1") {
  
         uint256 _ownerAddressSupply = _totalSupply.sub(_ICOSupply).sub(_devTeamSupply).sub(_bountySupply);
         
