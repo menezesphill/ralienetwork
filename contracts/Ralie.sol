@@ -19,7 +19,7 @@ ERC20 Token, with the addition of symbol, name and decimals and assisted token t
 contract RIEToken is ERC20Permit, Ownable {
     using SafeMath for uint256;
     //Define total ICO Supply
-    uint256 public _ICOSupply = 2.8e8 ether;
+    uint256 public _ICOSupply = 8e8 ether;
     
     //Define total devTeam allocated token funds
     uint256 public _devTeamSupply = 1e9 ether;
@@ -44,6 +44,7 @@ contract RIEToken is ERC20Permit, Ownable {
 
 
     function mintbyOwner(address account, uint256 amount) public virtual onlyOwner{
+        require(totalSupply().add(amount) <= totalSupply(), "ERC20: amount higher than total supply");
         _mint(account, amount);
     }
     
