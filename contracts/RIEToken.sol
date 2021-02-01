@@ -3,8 +3,8 @@
 pragma solidity >=0.6.0 <0.8.0;
 
 
-import "./ERC20Permit.sol";
-import "./Ownable.sol";
+import "./sub_contract/ERC20Permit.sol";
+import "./sub_contract/Ownable.sol";
 
 
 /**

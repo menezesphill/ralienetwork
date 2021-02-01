@@ -6,9 +6,9 @@ Has been amended to use openzepplin Ownable and now only supports one grant per 
 */
 pragma solidity >=0.6.0 <0.8.0;
 
-import "./ERC20.sol";
-import "./SafeMath.sol";
-import "./Ownable.sol";
+import "./sub_contract/ERC20.sol";
+import "./sub_contract/SafeMath.sol";
+import "./sub_contract/Ownable.sol";
 
 contract VestingVault is Ownable {
     using SafeMath for uint256;
