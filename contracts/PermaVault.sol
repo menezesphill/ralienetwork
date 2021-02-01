@@ -17,9 +17,9 @@ The tokens released daily is equal to (_amount)/(_vestingDurationInDays - _vesti
 
 pragma solidity >=0.6.0 <0.8.0;
 
-import "./sub_contract/ERC20.sol";
-import "./sub_contract/SafeMath.sol";
-import "./sub_contract/Ownable.sol";
+import "./ERC20.sol";
+import "./SafeMath.sol";
+import "./Ownable.sol";
 
 contract PermaVault is Ownable {
     using SafeMath for uint256;
