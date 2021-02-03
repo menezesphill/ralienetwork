@@ -19,7 +19,9 @@
     "url": "https://github.com/menezesphill/RalieNetwork/issues"
   },
   "homepage": "https://github.com/menezesphill/RalieNetwork#readme",
-  "dependencies": {},
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@truffle/hdwallet-provider": "^1.2.1",
