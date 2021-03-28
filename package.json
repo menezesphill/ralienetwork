@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/menezesphill/RalieNetwork#readme",
   "dependencies": {
+    "elliptic": "^6.5.4",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
